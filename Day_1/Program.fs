@@ -6,7 +6,7 @@ open System
 open System.IO
 
 //Loading Code for the input file
-let getFileContent fileName=
+let getFileContent fileName =
     use sr = File.OpenText(fileName)
     sr.ReadToEnd()
 
