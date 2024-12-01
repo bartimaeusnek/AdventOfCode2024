@@ -23,7 +23,7 @@ let calculateTotalDistance arrA arrB =
 
 //Solution for Part 2
 let calculateTimes arrA arrB =
-    Seq.map(fun a -> a * (Seq.filter (fun b -> b = a) arrB |> Seq.length)) arrA
+    Seq.map (fun a -> a * (Seq.filter (fun b -> b = a) arrB |> Seq.length)) arrA
         |> Seq.sum
 
 let listA, listB = buildLists (getFileContent "input")
