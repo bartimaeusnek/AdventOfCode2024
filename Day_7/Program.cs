@@ -1,5 +1,7 @@
 ﻿namespace Day_7;
 
+using System.Diagnostics;
+
 class Program
 {
     private static async Task<string> ReadInputAsync()
@@ -47,6 +49,7 @@ class Program
 
     static async Task Main(string[] args)
     {
+        var sw = Stopwatch.StartNew();
         var input = GetEquasionsFromInput(
 #if DEBUG
             DebugInput
@@ -67,5 +70,7 @@ class Program
             value += @ulong;
         }
         Console.WriteLine(value);
+        sw.Stop();
+        Console.WriteLine(sw.Elapsed);
     }
 }
