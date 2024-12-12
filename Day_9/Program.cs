@@ -80,9 +80,7 @@ internal class Program
     private static async Task Part2()
     {
         var files = GetAmphipodFiles(await ReadInputAsync()).ToList();
-#if DEBUG
-        PrintField(files);
-#endif
+
         for (var i = files.Count - 1; i >= 0; i--)
         {
             if (files[i].IsFreeSpace)
@@ -91,9 +89,7 @@ internal class Program
             {
                 if (!files[j].IsFreeSpace || files[j].Length < files[i].Length)
                     continue;
-#if DEBUG
-                PrintField(files);
-#endif
+                
                 var tmp = new AmphipodBlock(-1, files[i].Position, files[i].Length, true);
                 files[i].Position = files[j].Position;
                 files[j].Length -= files[i].Length;
@@ -112,9 +108,7 @@ internal class Program
         }
         ulong checksum = 0;
         var offset = 0;
-#if DEBUG
-        PrintField(files);  
-#endif
+        
         foreach (var currentFile in files)
         {
             if (!currentFile.IsFreeSpace)
